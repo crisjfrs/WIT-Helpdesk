@@ -26,7 +26,7 @@ deploy:
     - server
   script:
     - cd /home/wit/ticketone
-    - docker compose pull
-    - docker compose up -d --force-recreate
-  only:
-    - development
+    - git checkout development
+    - git pull origin development
+    - docker compose down
+    - docker compose up -d --build
