@@ -3,7 +3,7 @@
 @section('title', 'Login - Helpdesk System')
 
 @section('content')
-<div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0078D4 0%, #005A9E 100%);">
+<div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(120deg, #140a2a 0%, #241046 62%, #341a67 100%);">
     <div class="card" style="width: 100%; max-width: 400px; margin: 20px;">
         <div class="card-header" style="border: none; justify-content: center;">
             <h2 style="color: var(--primary);">
