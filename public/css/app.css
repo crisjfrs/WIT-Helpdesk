@@ -670,6 +670,23 @@ textarea.form-control {
 .gap-1 { gap: 10px; }
 .gap-2 { gap: 20px; }
 
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.action-buttons form {
+    display: inline-flex;
+    margin: 0;
+}
+
+.action-buttons .btn {
+    white-space: nowrap;
+}
+
 @media (max-width: 1200px) {
     .sidebar {
         width: 248px;

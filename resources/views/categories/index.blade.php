@@ -56,20 +56,22 @@
                     </td>
                     <td>{{ $category->sort_order }}</td>
                     <td>{{ $category->tickets()->count() }}</td>
-                    <td>
-                        <a href="{{ route('categories.show', $category->id) }}" class="btn btn-sm btn-primary">Detail</a>
-                        <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                        <form action="{{ route('categories.toggleActive', $category->id) }}" method="POST" style="display: inline;">
-                            @csrf
-                            <button type="submit" class="btn btn-sm {{ $category->is_active ? 'btn-danger' : 'btn-success' }}">
-                                {{ $category->is_active ? 'Nonaktifkan' : 'Aktifkan' }}
-                            </button>
-                        </form>
-                        <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Yakin ingin menghapus kategori ini?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                        </form>
+                    <td style="min-width: 300px;">
+                        <div class="action-buttons" style="display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; white-space: nowrap;">
+                            <a href="{{ route('categories.show', $category->id) }}" class="btn btn-sm btn-primary">Detail</a>
+                            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                            <form action="{{ route('categories.toggleActive', $category->id) }}" method="POST" style="display: inline-block; margin: 0;">
+                                @csrf
+                                <button type="submit" class="btn btn-sm {{ $category->is_active ? 'btn-danger' : 'btn-success' }}">
+                                    {{ $category->is_active ? 'Nonaktifkan' : 'Aktifkan' }}
+                                </button>
+                            </form>
+                            <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display: inline-block; margin: 0;" onsubmit="return confirm('Yakin ingin menghapus kategori ini?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 @empty

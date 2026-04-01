@@ -50,24 +50,26 @@
                         </span>
                     </td>
                     <td>{{ $user->created_at->format('d/m/Y') }}</td>
-                    <td>
-                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-sm btn-primary">Detail</a>
-                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                        @can('toggleActive', $user)
-                        <form action="{{ route('users.toggleActive', $user->id) }}" method="POST" style="display: inline;">
-                            @csrf
-                            <button type="submit" class="btn btn-sm {{ $user->is_active ? 'btn-danger' : 'btn-success' }}">
-                                {{ $user->is_active ? 'Nonaktifkan' : 'Aktifkan' }}
-                            </button>
-                        </form>
-                        @endcan
-                        @can('delete', $user)
-                        <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Yakin ingin menghapus user ini?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                        </form>
-                        @endcan
+                    <td style="min-width: 300px;">
+                        <div class="action-buttons" style="display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; white-space: nowrap;">
+                            <a href="{{ route('users.show', $user->id) }}" class="btn btn-sm btn-primary">Detail</a>
+                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                            @can('toggleActive', $user)
+                            <form action="{{ route('users.toggleActive', $user->id) }}" method="POST" style="display: inline-block; margin: 0;">
+                                @csrf
+                                <button type="submit" class="btn btn-sm {{ $user->is_active ? 'btn-danger' : 'btn-success' }}">
+                                    {{ $user->is_active ? 'Nonaktifkan' : 'Aktifkan' }}
+                                </button>
+                            </form>
+                            @endcan
+                            @can('delete', $user)
+                            <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: inline-block; margin: 0;" onsubmit="return confirm('Yakin ingin menghapus user ini?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                            </form>
+                            @endcan
+                        </div>
                     </td>
                 </tr>
                 @empty
