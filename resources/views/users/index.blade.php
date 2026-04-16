@@ -7,7 +7,7 @@
 <div class="card">
     <div class="card-header">
         <h3><i class="fas fa-users"></i> Manajemen User</h3>
-        <a href="{{ route('users.create') }}" class="btn btn-success">
+        <a href="{{ route('users.create') }}" class="btn btn-success btn-sm">
             <i class="fas fa-plus"></i> Tambah User
         </a>
     </div>
@@ -21,7 +21,7 @@
                     <option value="teknisi" {{ request('role') == 'teknisi' ? 'selected' : '' }}>Teknisi</option>
                     <option value="user" {{ request('role') == 'user' ? 'selected' : '' }}>User</option>
                 </select>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary btn-sm btn-search-submit">
                     <i class="fas fa-search"></i> Cari
                 </button>
             </div>

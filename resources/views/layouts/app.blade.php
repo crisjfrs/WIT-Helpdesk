@@ -16,9 +16,13 @@
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="sidebar-brand">
-                    <div class="sidebar-brand-mark">T</div>
+                    @if(file_exists(public_path('images/logo-wit.png')))
+                        <img src="{{ asset('images/logo-wit.png') }}" alt="WIT Helpdesk" class="sidebar-brand-logo">
+                    @else
+                        <div class="sidebar-brand-mark">W</div>
+                    @endif
                     <div class="sidebar-brand-copy">
-                        <h2>TicketOne</h2>
+                        <h2>WIT Helpdesk</h2>
                         <p>Helpdesk Dashboard</p>
                     </div>
                 </div>
@@ -90,7 +94,6 @@
                     </div>
                     <div class="d-flex align-center gap-2">
                         <span>{{ auth()->user()->name }}</span>
-                        <span class="badge badge-primary">{{ ucfirst(auth()->user()->role) }}</span>
                         <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                             @csrf
                             <button type="submit" class="btn btn-sm btn-outline">Logout</button>

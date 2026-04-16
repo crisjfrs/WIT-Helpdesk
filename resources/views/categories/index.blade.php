@@ -7,7 +7,7 @@
 <div class="card">
     <div class="card-header">
         <h3><i class="fas fa-tags"></i> Manajemen Kategori</h3>
-        <a href="{{ route('categories.create') }}" class="btn btn-success">
+        <a href="{{ route('categories.create') }}" class="btn btn-success btn-sm">
             <i class="fas fa-plus"></i> Tambah Kategori
         </a>
     </div>
@@ -20,11 +20,11 @@
                     <option value="active" {{ request('status') == 'active' ? 'selected' : '' }}>Aktif</option>
                     <option value="inactive" {{ request('status') == 'inactive' ? 'selected' : '' }}>Nonaktif</option>
                 </select>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary btn-sm">
                     <i class="fas fa-search"></i> Cari
                 </button>
                 @if(request()->hasAny(['search', 'status']))
-                <a href="{{ route('categories.index') }}" class="btn btn-secondary">Reset</a>
+                <a href="{{ route('categories.index') }}" class="btn btn-secondary btn-sm">Reset</a>
                 @endif
             </div>
         </form>
