@@ -15,6 +15,22 @@ services:
     networks:
       - ticketone
 
+  queue-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ticketone_queue
+    restart: always
+    working_dir: /var/www
+    command: php artisan queue:work --sleep=3 --tries=3 --timeout=90
+    volumes:
+      - .:/var/www
+    depends_on:
+      - app
+      - db
+    networks:
+      - ticketone
+
   webserver:
     image: nginx:alpine
     container_name: ticketone_web
