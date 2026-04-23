@@ -1,6 +1,6 @@
 services:
   app:
-    image: ticketone-app:latest
+    image: ticketone-app:latest 
     build:
       context: .
       dockerfile: Dockerfile
